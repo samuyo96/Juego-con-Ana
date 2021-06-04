@@ -1,0 +1,8 @@
+/Library
+/Logs
+/obj
+/UserSettings
+/Temp
+/Packages
+*.csproj
+/Assets/SaveOfModels

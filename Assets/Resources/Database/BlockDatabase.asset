@@ -1,0 +1,287 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a092edccd759de944b5866c145e4e27b, type: 3}
+  m_Name: BlockDatabase
+  m_EditorClassIdentifier: 
+  blocks:
+  - id: 0
+    name: GrassPlain
+    destrComp: 0
+    blockType: 3
+    models:
+    - {fileID: 238478905841333413, guid: 3c14f783659621f44ac4191aaf6d68e6, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 6
+    - 3
+    - 1
+  - id: 1
+    name: DirtHillSideCornerA
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 6763904424915691438, guid: 168e1fcb62de44f4b86c369510f769e9, type: 3}
+    - {fileID: 9070769625452104896, guid: b96311b61d35986459e079390a53837c, type: 3}
+    - {fileID: 5544382751153533093, guid: 3b8cf3513bcaaf0428ec9f0f1c99c768, type: 3}
+    - {fileID: 9211314899682744608, guid: cc0ab48534c025c4282fff58b0ef5f21, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 000101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 2
+    name: DirtHillSideCornerC
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 1693984180417165364, guid: b140f5db40a0ea94090853003b81e51f, type: 3}
+    - {fileID: 4623140540976248530, guid: b4d8bfdb59910fc4390976fe7d6d28b8, type: 3}
+    - {fileID: 252482609116720763, guid: eb03e5de9713ae444b57f9d257147ff6, type: 3}
+    - {fileID: 5008101898768954482, guid: 663140a64a250e3469bf44d7daf31771, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 000000010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 3
+    name: DirtHillSide
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 2638842891989227650, guid: eade4f306cf28894bad60a35c2a7e6cf, type: 3}
+    - {fileID: 8539007215401874601, guid: c4e9897cf9d0564408c71a3c88d1678b, type: 3}
+    - {fileID: 4888146808405568398, guid: 8618a1b9515436240b37f650e4507fe8, type: 3}
+    - {fileID: 1332302418213074392, guid: 065bf57160280da4fb6c92bf0b5bf5e1, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 000101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 4
+    name: GrayRockPlain
+    destrComp: 0
+    blockType: 3
+    models:
+    - {fileID: 4647110311324676855, guid: 483b3972883e3bd46bf94ab166e758c5, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 5
+    name: GrayRockHillSideCornerA
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 1834498926301119489, guid: e9704505098e1654ba35de591dd1282d, type: 3}
+    - {fileID: 1050749661741154842, guid: 1c74fad3bc7784f44aa27c1c57544dac, type: 3}
+    - {fileID: 2542116610166123039, guid: bccb397bf6f7a2542b4fca0ae6493985, type: 3}
+    - {fileID: 6998212420548163050, guid: 4e9abae90a5f28b4ebfb40bc70080bf9, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 6
+    name: GrayRockHillSideCornerC
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 8076356802810602368, guid: 0f81cf01efe93824fae2cbc2d42f4c68, type: 3}
+    - {fileID: 2623567823167716821, guid: 43cd9ef5b949e304c87307531e6f2cf0, type: 3}
+    - {fileID: 7727627647183315637, guid: 2685adab5946495409e4fd9d970c5388, type: 3}
+    - {fileID: 5265994277940408798, guid: 27945a50cfee9be45931a731aab04375, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 7
+    name: GrayRockHillSide
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 3011226743476951520, guid: 9e8d7291c7f44ac46ae6a3718a247eb4, type: 3}
+    - {fileID: 5344374319669352302, guid: 39252fb43df04714280214c90cae0f7b, type: 3}
+    - {fileID: 1402626090984605707, guid: 0276c985145e4f74bb1e3638c35c54e7, type: 3}
+    - {fileID: 9180618109433951247, guid: 2f652c6fd9773ed4596cbc4d789c8e54, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 000101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 8
+    name: DirtSmallPlain
+    destrComp: 0
+    blockType: 3
+    models:
+    - {fileID: 8519554222200618431, guid: 425187fb54e43004286c4575989b531c, type: 3}
+    - {fileID: 5546512926467099021, guid: e94e39a3fb0a4a946aa6a0c463144a7d, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 9
+    name: DirtSmallHillsideCornerA
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 9143059094024670742, guid: d166b3d42ecd1fb4c95b486c655f1f1e, type: 3}
+    - {fileID: 1073105324608768427, guid: 75592ae10becb0e4faedc580025b019a, type: 3}
+    - {fileID: 8187663776942515166, guid: dfa0e138243211f40a511e0e38773b36, type: 3}
+    - {fileID: 8522567204567289674, guid: 51f8aa3a2b1d58443bbc9fc79130f645, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 10
+    name: DirtSmallHillsideCornerC
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 7308036066791893810, guid: a7178790ad5426e40b975f89ffab05ba, type: 3}
+    - {fileID: 1514056662441486840, guid: a5cc3ee1593e92e459f961acbebf0a41, type: 3}
+    - {fileID: 2649741769835229967, guid: 52ec1ee04b7ee2842b5c01f94a21016e, type: 3}
+    - {fileID: 803501507353746697, guid: 5a797245b6ec5774989cd93de478be26, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 11
+    name: DirtSmallHillside
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 3444947355008608105, guid: e7d7f55e0d4064f458fcfef15ef98640, type: 3}
+    - {fileID: 2368195853386792156, guid: 66443d9e9fd6a7342964a5c5425918e9, type: 3}
+    - {fileID: 7593137113239898271, guid: 929a16f683aefd94f90aa3ef1f800d83, type: 3}
+    - {fileID: 4739244633397847051, guid: 3141b26d61c13954696233eb51383ca7, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 12
+    name: DirtWaterfallStart
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 3847060232866467755, guid: defb2409cb260814ea86a4eae0b2779f, type: 3}
+    - {fileID: 8084297779178759125, guid: 5ec4ee517d565a1459d926103296d3f9, type: 3}
+    - {fileID: 6967497053764031539, guid: af2e3d7208495024ea3b13f61431107b, type: 3}
+    - {fileID: 8343792532672763055, guid: 8289b1bde7fec03428119a29c14a1d03, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 13
+    name: DirtWaterfall
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 8800776185457861507, guid: cf4eb07cde1a0f94cbcb34c60ce6a82d, type: 3}
+    - {fileID: 5875845420740785627, guid: 005fcb33e9f80264b9f557b09d5fdd47, type: 3}
+    - {fileID: 8459920393832940242, guid: d962857f7520cc241a602014e2996b2f, type: 3}
+    - {fileID: 7618251895999495119, guid: c728c419a26e86b408ba7c336792a3fc, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 14
+    name: DirtWaterfallEnd
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 8488239652991264016, guid: f09cb96204631854e9f8118139820232, type: 3}
+    - {fileID: 8284004090774088907, guid: 69252dbb5413b544a908c0c2ac2fac0d, type: 3}
+    - {fileID: 3326216958567684795, guid: 55c490ef7503e694197518e86bf36def, type: 3}
+    - {fileID: 5809865064931541246, guid: 0b8afe2973b2c284abb70f844bd25e15, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 4
+    - 3
+    - 3
+  - id: 15
+    name: WaterFlat
+    destrComp: 0
+    blockType: 3
+    models:
+    - {fileID: 4657011619828686754, guid: 504fabefc69789747ae069428c400888, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 10
+    - 0
+    - 0
+  - id: 16
+    name: Waterfall
+    destrComp: 0
+    blockType: 2
+    models:
+    - {fileID: 781239607632094472, guid: 35d09af3020ec9e46993e3d0f0845993, type: 3}
+    - {fileID: 2321679645221789972, guid: 83c224752d55ef448961a5b921b1a4b1, type: 3}
+    - {fileID: 4370834840903110410, guid: d0b6c635db4067348bd0378cf5292bb7, type: 3}
+    - {fileID: 401170105073469141, guid: 6e79515cca51bc947b7363c67f24ab33, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    noReposicioned: 010101010101
+    textureWeightsOverTen:
+    - 10
+    - 0
+    - 0
