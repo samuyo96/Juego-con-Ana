@@ -19,9 +19,21 @@ MonoBehaviour:
     decorationType: 0
     models:
     - {fileID: 1951288958045768521, guid: fda15f63cb4536c489f14b6209095eca, type: 3}
+    probability: []
   - id: 1
     name: Rock
     destrComp: 2
     decorationType: 1
     models:
     - {fileID: 1635726265966224578, guid: cc3843a756ddcf442a4a185d3f1ef2b9, type: 3}
+    probability: []
+  - id: 2
+    name: TreeBasic
+    destrComp: 2
+    decorationType: 4
+    models:
+    - {fileID: 8142279878633367904, guid: 943a424ba12ce3349a4c749bea5213cf, type: 3}
+    probability:
+    - 10
+    - 0
+    - 0

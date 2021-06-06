@@ -10,6 +10,7 @@ public class BlockManager : ScriptableObject
 
     public BlockRelations FindBlockById(int id)
     {
+        Debug.Log(id.ToString());
         if (id > blockRelations.Count)
         {
             return null;

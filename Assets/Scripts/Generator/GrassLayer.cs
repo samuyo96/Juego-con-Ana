@@ -24,7 +24,7 @@ public class GrassLayer : MonoBehaviour
         layerMatrix = new int[][,] {
             heightMap, typeMap
         };
-        meshes = GameVar.FloatingMesh.GenerateMultiFloatingMesh(4);
+        meshes = GameVar.FloatingMesh.GenerateMultiFloatingMesh(5);
         chunkOffset = offset;
         LoadLayer();
         TranslateMatrix();
@@ -74,6 +74,18 @@ public class GrassLayer : MonoBehaviour
                     Resources.Load($"Materials/StaticDecoration", typeof(Material)) as Material, UnityEngine.Rendering.ShadowCastingMode.On);
             }
         }
+        GenerateTrees();
+    }
+
+    private void GenerateTrees ()
+    {
+        if (meshes[3].layerVerts.Count != 0)
+        {
+            ChildCreator.GenerateSubLayer(transform, meshes[3], $"TreeSubLayer",
+            Resources.Load($"Materials/StaticDecoration", typeof(Material)) as Material, UnityEngine.Rendering.ShadowCastingMode.On);
+            ChildCreator.GenerateSubLayer(transform.GetChild(transform.childCount -1), meshes[4], $"TreeInfraLayer",
+            mainMaterial, UnityEngine.Rendering.ShadowCastingMode.On);
+        }
     }
 
     private void TranslateMixer (MatrixMixer mix, Vector3 offset)
@@ -104,20 +116,32 @@ public class GrassLayer : MonoBehaviour
     {
         GameVar.Voxel voxel = new GameVar.Voxel();
         int layerIndex = 0;
+        float angle = 0f;
         switch (decoration.decorationType)
         {
             case Decoration.DecType.Grass:
                 voxel = GenerateSimpleVoxel(decoration.models[0]);
+                angle = Random.Range(0f, 30f);
                 break;
             case Decoration.DecType.Rock:
                 voxel = GenerateSimpleVoxel(decoration.models[0]);
                 layerIndex = 1;
+                angle = Random.Range(0f, 45f);
+                break;
+            case Decoration.DecType.Tree:
+                GameObject tree = modelSelectorForTrees(decoration);
+                angle = Random.Range(0f, 180f);
+                voxel = GenerateSimpleVoxel(tree.transform.GetChild(0).gameObject);
+                AddFLoatingMeshes(AddBlockToGeometry.AddSimpleBlockToGeometry(Vector3.zero, voxel,
+                                             meshes[4].layerVerts.Count, 0), 4, offset, angle);
+                voxel = GenerateSimpleVoxel(tree.transform.GetChild(1).gameObject);
+                layerIndex = 3;
                 break;
             default:
                 break;
         }
         AddFLoatingMeshes(AddBlockToGeometry.AddSimpleBlockToGeometry(Vector3.zero, voxel, 
-                                             meshes[layerIndex].layerVerts.Count, 0), layerIndex, offset);
+                                             meshes[layerIndex].layerVerts.Count, 0), layerIndex, offset, angle);
     }
 
     private int[,] MatrixCutter(Vector2Int offset, int id)
@@ -144,13 +168,13 @@ public class GrassLayer : MonoBehaviour
         return around;
     }
 
-    private void AddFLoatingMeshes(GameVar.FloatingMesh externalFM, int dimension, Vector3 offset)
+    private void AddFLoatingMeshes(GameVar.FloatingMesh externalFM, int dimension, Vector3 offset, float angle)
     {
         meshes[dimension].layerNorms.AddRange(externalFM.layerNorms);
         meshes[dimension].layerTris.AddRange(externalFM.layerTris);
         meshes[dimension].layerUVs.AddRange(externalFM.layerUVs);
         meshes[dimension].layerVerts.AddRange(MeshRotator.RotateVertexAroundVector
-                          (Vector3.up, Random.Range(0f, 30f), externalFM.layerVerts, offset));
+                          (Vector3.up, angle, externalFM.layerVerts, offset));
     }
 
     private GameVar.Voxel GenerateSimpleVoxel(GameObject model)
@@ -164,7 +188,7 @@ public class GrassLayer : MonoBehaviour
     private Vector3 MiniDisplacementCalculator (int index, BlockRelations.VoxelType type)
     {
         Vector3 epsilonVect = new Vector3(randomPos[0][index] - 2f, 1f, randomPos[2][index] - 2f);
-        if (type == BlockRelations.VoxelType.Default)
+        if (type == BlockRelations.VoxelType.Default || type == BlockRelations.VoxelType.Plain)
         {
             epsilonVect.Set(epsilonVect.x, randomPos[1][index] * 2f, epsilonVect.z);
         }
@@ -208,5 +232,22 @@ public class GrassLayer : MonoBehaviour
         List<int> endNums = RandomPositionCalculator(length).ToList();
         startNum.AddRange(endNums);
         return startNum.ToArray();
+    }
+
+    private GameObject modelSelectorForTrees (Decoration decoration)
+    {
+        float r = Random.Range(0f, 10f);
+        int index = 0;
+        float sum = 0;
+        for (int pos = 0; pos < decoration.probability.Length; pos++)
+        {
+            sum += decoration.probability[pos];
+            if (r < sum)
+            {
+                index = pos;
+                break;
+            }
+        }
+        return decoration.models[index];
     }
 }
