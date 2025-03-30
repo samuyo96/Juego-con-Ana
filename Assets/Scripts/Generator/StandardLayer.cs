@@ -23,6 +23,7 @@ public class StandardLayer : MonoBehaviour
         TranslateMatrix();
         transform.GetComponent<Renderizer>().RenderFloatingMesh(mesh, mainMaterial,
                                  UnityEngine.Rendering.ShadowCastingMode.TwoSided);
+        layerMatrix = new int[0][,];
     }
 
     private void LoadLayer ()

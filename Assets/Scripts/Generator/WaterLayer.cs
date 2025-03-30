@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class WaterLayer : MonoBehaviour
 {
     public int[][,] layerMatrix;
@@ -41,7 +40,7 @@ public class WaterLayer : MonoBehaviour
             transform.GetComponent<Renderizer>().RenderFloatingMesh(meshes[0], mainMaterial,
                                            UnityEngine.Rendering.ShadowCastingMode.TwoSided);
         }
-
+        layerMatrix = new int[0][,];
     }
 
     private void LoadLayer()
@@ -79,9 +78,9 @@ public class WaterLayer : MonoBehaviour
             if (meshes[subLayer].layerVerts.Count != 0)
             {
 
-                ChildCreator.GenerateSubLayer(transform, meshes[subLayer], $"waterSubLayer0{subLayer}",
+                ChildCreator.GenerateSubLayer(transform, meshes[subLayer], $"waterSubLayer0{subLayer} {transform.name}",
                              Resources.Load($"Materials/{materials[subLayer-1]}", typeof(Material)) as Material,
-                             UnityEngine.Rendering.ShadowCastingMode.Off);
+                             UnityEngine.Rendering.ShadowCastingMode.Off, "Water");
             }
         }
     }

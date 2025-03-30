@@ -24,7 +24,7 @@ MonoBehaviour:
     - id: 1
       subtype: 0
   - id: 2
-    type: 4
+    type: 0
     blockDescriptors:
     - id: 2
       subtype: 3

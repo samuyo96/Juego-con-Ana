@@ -76,7 +76,7 @@ public class GameVar
             return fm;
         }
 
-        public static FloatingMesh GenerateMonoFloatingMesh ()
+        public static FloatingMesh GenerateMonoFloatingMesh()
         {
             FloatingMesh fm = new FloatingMesh();
             fm.layerVerts = new List<Vector3>();
@@ -85,5 +85,11 @@ public class GameVar
             fm.layerUVs = new List<Vector2>();
             return fm;
         }
+    }
+
+    public class WorldIntMatrix
+    {
+        public int[,] matrix;
+        public Vector2Int origin;
     }
 }

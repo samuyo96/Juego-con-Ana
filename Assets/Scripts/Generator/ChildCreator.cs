@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class ChildCreator
@@ -12,9 +10,9 @@ public static class ChildCreator
         child.name = name;
     }
 
-    public static void GenerateComplex (Transform parent, TerrainGeneratorMaster.LayerData.LayerType type, int[,] typeMatrix, int[,] heightMatrix, Vector2Int chunkOffset)
+    public static void GenerateComplex (Transform parent, TerrainGeneratorMaster.LayerData.LayerType type, int[,] typeMatrix, int[,] heightMatrix, Vector2Int chunkOffset, string name)
     {
-        GenerateBasic(parent, type.ToString());
+        GenerateBasic(parent, type.ToString() + name);
         MeshFilter mf = parent.GetChild(parent.childCount - 1).gameObject.AddComponent(typeof(MeshFilter)) as MeshFilter;
         MeshRenderer mr = parent.GetChild(parent.childCount - 1).gameObject.AddComponent(typeof(MeshRenderer)) as MeshRenderer;
         Renderizer rd = parent.GetChild(parent.childCount - 1).gameObject.AddComponent(typeof(Renderizer)) as Renderizer;
@@ -37,7 +35,7 @@ public static class ChildCreator
         }
     }
 
-    public static void GenerateSubLayer(Transform parent, GameVar.FloatingMesh fm, string name, Material material, UnityEngine.Rendering.ShadowCastingMode mode)
+    public static void GenerateSubLayer(Transform parent, GameVar.FloatingMesh fm, string name, Material material, UnityEngine.Rendering.ShadowCastingMode mode, string tag)
     {
         GenerateBasic(parent, name);
         MeshFilter mf = parent.GetChild(parent.childCount - 1).gameObject.AddComponent(typeof(MeshFilter)) as MeshFilter;
@@ -45,5 +43,6 @@ public static class ChildCreator
         Renderizer rd = parent.GetChild(parent.childCount - 1).gameObject.AddComponent(typeof(Renderizer)) as Renderizer;
         SubLayer water = parent.GetChild(parent.childCount - 1).gameObject.AddComponent(typeof(SubLayer)) as SubLayer;
         water.StartLayer(fm, material, mode);
+        parent.GetChild(parent.childCount - 1).gameObject.tag = tag;
     }
 }

@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Renderizer : MonoBehaviour
 {
@@ -20,6 +19,9 @@ public class Renderizer : MonoBehaviour
         mf.sharedMesh.SetTriangles(fm.layerTris, 0);
         mf.sharedMesh.SetUVs(0, fm.layerUVs);
         mf.sharedMesh.RecalculateBounds();
+        string localPath = $"Assets/Prefabs/Results/Meshes/{transform.name}.asset";
+        AssetDatabase.GenerateUniqueAssetPath(localPath);
+        AssetDatabase.CreateAsset(mf.sharedMesh, localPath);
     }
 
     private void RenderMesh(MeshRenderer mr, Material material, UnityEngine.Rendering.ShadowCastingMode mode)

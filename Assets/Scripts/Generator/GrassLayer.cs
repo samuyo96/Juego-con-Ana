@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -19,10 +18,16 @@ public class GrassLayer : MonoBehaviour
 
     private List<int> monoValues;
 
+    private string[] tags;
+
     public void StartLayer(int[,] heightMap, int[,] typeMap, Vector2Int offset)
     {
         layerMatrix = new int[][,] {
             heightMap, typeMap
+        };
+        tags = new string[]
+        {
+            "RockDeco", "Other"
         };
         meshes = GameVar.FloatingMesh.GenerateMultiFloatingMesh(5);
         chunkOffset = offset;
@@ -31,6 +36,7 @@ public class GrassLayer : MonoBehaviour
         transform.GetComponent<Renderizer>().RenderFloatingMesh(meshes[0], mainMaterial,
                                  UnityEngine.Rendering.ShadowCastingMode.On);
         GenerateSubLayer();
+        layerMatrix = new int[0][,];
     }
 
     private void LoadLayer()
@@ -70,8 +76,8 @@ public class GrassLayer : MonoBehaviour
         {
             if (meshes[subLayer].layerVerts.Count != 0)
             {
-                ChildCreator.GenerateSubLayer(transform, meshes[subLayer], $"GrassSubLayer0{subLayer}",
-                    Resources.Load($"Materials/StaticDecoration", typeof(Material)) as Material, UnityEngine.Rendering.ShadowCastingMode.On);
+                ChildCreator.GenerateSubLayer(transform, meshes[subLayer], $"GrassSubLayer0{subLayer} {transform.name}",
+                    Resources.Load($"Materials/StaticDecoration", typeof(Material)) as Material, UnityEngine.Rendering.ShadowCastingMode.On, tags[subLayer -1]);
             }
         }
         GenerateTrees();
@@ -81,10 +87,10 @@ public class GrassLayer : MonoBehaviour
     {
         if (meshes[3].layerVerts.Count != 0)
         {
-            ChildCreator.GenerateSubLayer(transform, meshes[3], $"TreeSubLayer",
-            Resources.Load($"Materials/StaticDecoration", typeof(Material)) as Material, UnityEngine.Rendering.ShadowCastingMode.On);
-            ChildCreator.GenerateSubLayer(transform.GetChild(transform.childCount -1), meshes[4], $"TreeInfraLayer",
-            mainMaterial, UnityEngine.Rendering.ShadowCastingMode.On);
+            ChildCreator.GenerateSubLayer(transform, meshes[3], $"TreeSubLayer {transform.name}",
+            Resources.Load($"Materials/StaticDecoration", typeof(Material)) as Material, UnityEngine.Rendering.ShadowCastingMode.On, "TreeDeco");
+            ChildCreator.GenerateSubLayer(transform.GetChild(transform.childCount -1), meshes[4], $"TreeInfraLayer {transform.name}",
+            mainMaterial, UnityEngine.Rendering.ShadowCastingMode.On, "TreeDeco");
         }
     }
 
